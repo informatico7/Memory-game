@@ -111,3 +111,10 @@ body{
     max-width: 35px;
   }
 }
+.contT {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+  color: #fff;
+}

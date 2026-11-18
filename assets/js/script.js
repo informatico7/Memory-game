@@ -3,6 +3,22 @@ const cards = document.querySelectorAll(".card");
 let matched = 0;
 let cardOne, cardTwo;
 let disableDeck = false;
+let tentativas = 0;
+const maxTentativas = 20;
+function updateAttempts() {
+    tentativas++;
+
+    document.querySelector(".attempts").innerText =
+        `${tentativas}/${maxTentativas}`;
+
+    if(tentativas >= maxTentativas && matched < 8) {
+        disableDeck = true;
+
+        setTimeout(() => {
+            alert("Game Over! Você atingiu o limite de tentativas.");
+        }, 500);
+    }
+}
 
 function flipCard({target: clickedCard}) {
     if(cardOne !== clickedCard && !disableDeck) {
@@ -12,6 +28,7 @@ function flipCard({target: clickedCard}) {
         }
         cardTwo = clickedCard;
         disableDeck = true;
+        updateAttempts();
         let cardOneImg = cardOne.querySelector(".back-view img").src,
         cardTwoImg = cardTwo.querySelector(".back-view img").src;
         matchCards(cardOneImg, cardTwoImg);
