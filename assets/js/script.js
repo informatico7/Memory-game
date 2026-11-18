@@ -24,7 +24,7 @@ function matchCards(img1, img2) {
         if(matched == 8) {
             setTimeout(() => {
                 return shuffleCard();
-            }, 1000);
+            }, 3000);
         }
         cardOne.removeEventListener("click", flipCard);
         cardTwo.removeEventListener("click", flipCard);
